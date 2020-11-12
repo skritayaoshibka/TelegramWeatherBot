@@ -21,10 +21,10 @@ namespace WeatherBot.Models
             commandsList = new List<Command>();
             commandsList.Add(new HelloCommand());
             commandsList.Add(new StartCommand());
-            commandsList.Add(new WeatherCommand());
             commandsList.Add(new WeatherCelsiusCommand());
             commandsList.Add(new WeatherFahrenheitCommand());
-
+            commandsList.Add(new WeatherCommand());
+            
             client = new TelegramBotClient(BotSettings.Key);
             var hook = string.Format(BotSettings.Url, "/api/message/update");
             await client.SetWebhookAsync(hook);

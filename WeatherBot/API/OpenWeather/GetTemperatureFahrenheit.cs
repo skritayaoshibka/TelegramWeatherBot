@@ -7,14 +7,16 @@ namespace WeatherBot.API.OpenWeather
     {
         public string GetTemperature(JObject weatherData)
         {
-            string feelsLikeTemperature = Math.Round((double)weatherData["main"]["temp"] * (9 / 5) - 459.67).ToString() + "℉";
-            return feelsLikeTemperature;
+            string temperature = Math.Round(((int)weatherData["main"]["temp"]  - 273) * 1.8 + 32).ToString() + "℉";
+            
+            return temperature;
         }
 
         public string GetFeelsLikeTemperature(JObject weatherData)
         {
-            string temperature = Math.Round((double)weatherData["main"]["feels_like"] * (9/5) - 459.67).ToString() + "℉";
-            return temperature;
+            string feelsLikeTemperature = Math.Round(((int)weatherData["main"]["feels_like"] - 273) * 1.8 + 32).ToString() + "℉";
+            
+            return feelsLikeTemperature;
         }
     }
 }

@@ -6,16 +6,18 @@ namespace WeatherBot.API.OpenWeather
     {
         public string GetTemperature(JObject weatherData)
         {
-            string feelsLikeTemperature = ((int)weatherData["main"]["temp"] - 273).ToString() + "℃";
-            return feelsLikeTemperature;
+            string temperature = ((int)weatherData["main"]["temp"] - 273).ToString() + "℃";
+
+            return temperature;
         }
 
         public string GetFeelsLikeTemperature(JObject weatherData)
         {
-            string temperature = ((int)weatherData["main"]["feels_like"] - 273).ToString() + "℃";
-            return temperature;
+            string feelsLikeTemperature = ((int)weatherData["main"]["feels_like"] - 273).ToString() + "℃";
+
+            return feelsLikeTemperature;
         }
 
-        
+
     }
 }

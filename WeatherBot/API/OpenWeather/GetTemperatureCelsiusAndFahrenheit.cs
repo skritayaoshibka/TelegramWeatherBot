@@ -5,18 +5,18 @@ namespace WeatherBot.API.OpenWeather
 {
     public class GetTemperatureCelsiusAndFahrenheit : IGetTemperatureBehavior
     {
-       public string GetTemperature(JObject weatherData)
+        public string GetTemperature(JObject weatherData)
         {
-            string feelsLikeTemperatureC = ((int)weatherData["main"]["temp"] - 273).ToString() + "℃";
-            string feelsLikeTemperatureF = Math.Round((double)weatherData["main"]["temp"] * (9 / 5) - 459.67).ToString() + "℉";
+            string temperatureC = ((int)weatherData["main"]["temp"] - 273).ToString() + "℃";
+            string temperatureF = Math.Round(((int)weatherData["main"]["temp"] - 273) * 1.8 + 32).ToString() + "℉";
 
-            return feelsLikeTemperatureC + " (" + feelsLikeTemperatureF + ")";
+            return temperatureC + " (" + temperatureF + ")";
         }
 
-         public string GetFeelsLikeTemperature(JObject weatherData)
+        public string GetFeelsLikeTemperature(JObject weatherData)
         {
             string feelsLikeTemperatureC = ((int)weatherData["main"]["feels_like"] - 273).ToString() + "℃";
-            string feelsLikeTemperatureF = Math.Round((double)weatherData["main"]["feels_like"] * (9 / 5) - 459.67).ToString() + "℉";
+            string feelsLikeTemperatureF = Math.Round(((int)weatherData["main"]["feels_like"] - 273) * 1.8 + 32).ToString() + "℉";
 
             return feelsLikeTemperatureC + " (" + feelsLikeTemperatureF + ")";
         }
