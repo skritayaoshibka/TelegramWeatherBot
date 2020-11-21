@@ -18,7 +18,7 @@ namespace WeatherBot
         
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews().AddNewtonsoftJson();
+            services.AddControllers().AddNewtonsoftJson();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -34,8 +34,6 @@ namespace WeatherBot
 
             SetBotSettings();
             SetOpenWeatherAPISettings();
-            SetYandexTranslateAPISettings();
-
 
             app.UseHttpsRedirection();
             app.UseRouting();
@@ -61,11 +59,6 @@ namespace WeatherBot
         private void SetOpenWeatherAPISettings()
         {
             OpenWeatherAPISettings.Key = Configuration["OpenWaetherAPIConfiguration:Key"];
-        }
-
-        public void SetYandexTranslateAPISettings()
-        {
-            YandexTranslateAPISettings.Key = Configuration["YandexTranslateAPIConfiguration:Key"];
         }
     }
 }

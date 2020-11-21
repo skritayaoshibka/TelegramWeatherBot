@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 
 namespace WeatherBot.API.OpenWeather
 {
@@ -6,16 +7,30 @@ namespace WeatherBot.API.OpenWeather
     {
         public string GetTemperature(JObject weatherData)
         {
-            string temperature = ((int)weatherData["main"]["temp"] - 273).ToString() + "℃";
-
-            return temperature;
+            try
+            {
+                string temperature = ((int)weatherData["main"]["temp"] - 273).ToString() + "℃";
+                
+                return temperature;
+            }
+            catch(Exception ex)
+            {
+                return "Temp not found";
+            }            
         }
 
         public string GetFeelsLikeTemperature(JObject weatherData)
         {
-            string feelsLikeTemperature = ((int)weatherData["main"]["feels_like"] - 273).ToString() + "℃";
+            try
+            {
+                string feelsLikeTemperature = ((int)weatherData["main"]["feels_like"] - 273).ToString() + "℃";
 
-            return feelsLikeTemperature;
+                return feelsLikeTemperature;
+            }
+            catch (Exception ex)
+            {
+                return "Temp not found";
+            } 
         }
 
 

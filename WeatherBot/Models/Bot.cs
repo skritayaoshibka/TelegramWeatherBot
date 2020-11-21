@@ -19,7 +19,6 @@ namespace WeatherBot.Models
             }
 
             commandsList = new List<Command>();
-            commandsList.Add(new HelloCommand());
             commandsList.Add(new StartCommand());
             commandsList.Add(new WeatherCelsiusCommand());
             commandsList.Add(new WeatherFahrenheitCommand());
