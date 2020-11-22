@@ -7,8 +7,8 @@ namespace WeatherBot.API.OpenWeather
 {
     public class OpenWeatherAPI
     {
-        JObject WeatherDataJsonObject;
-        IGetTemperatureBehavior GetTemperatureBehavior;
+        private JObject WeatherDataJsonObject;
+        private IGetTemperatureBehavior GetTemperatureBehavior;
 
         public bool LoadWeatherData(string cityName)
         {
